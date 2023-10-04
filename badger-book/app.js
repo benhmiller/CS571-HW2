@@ -44,13 +44,13 @@ function handleSearch(e) {
 	e.preventDefault();
 
 	// Obtain the User Search Values (Convert to Lower Case)
-	let nameSearched = document.getElementById("search-name").value.toLowerCase();
-	let majorSearched = document.getElementById("search-major").value.toLowerCase();
-	let interestSearched = document.getElementById("search-interest").value.toLowerCase();
+	let nameSearched = document.getElementById("search-name").value.trim().toLowerCase();
+	let majorSearched = document.getElementById("search-major").value.trim().toLowerCase();
+	let interestSearched = document.getElementById("search-interest").value.trim().toLowerCase();
 
 	// Build Search Results
 	let searchResult = students.filter(student => {
-		const fullName = `${student.name.first}${student.name.last}`.toLowerCase();
+		const fullName = `${student.name.first} ${student.name.last}`.toLowerCase();
 		if(nameSearched.length > 0 && fullName.includes(nameSearched)) {
 			return true;
 		}
